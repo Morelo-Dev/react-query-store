@@ -10,6 +10,7 @@ export const CompleteListPage = () => {
       { isLoading && <p>Cargando...</p> }
       { isError && <p>Error: {error?.message}</p> }
       { isFetching && <p>Fetching...</p> }
+      
       <ProductList products={products} />
 
     </div>
