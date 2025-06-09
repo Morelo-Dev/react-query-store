@@ -1,0 +1,20 @@
+import { useParams } from "react-router-dom";
+import { ProductCard, ProductList, useProduct } from ".."
+
+
+export const ProductById = () => {
+  const { id } = useParams();
+  const { isLoading, isError, error, product, isFetching } = useProduct({ id: +id! });
+
+  return (
+    <div className="flex-col">
+      <h1 className="text-2xl font-bold">productos</h1>
+      {isLoading && <p>Cargando...</p>}
+      {isError && <p>Error: {error?.message}</p>}
+      {isFetching && <p>Fetching...</p>}
+      {
+        product && (<ProductCard product={product} />)
+      }
+    </div>
+  )
+}
